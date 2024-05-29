@@ -14,16 +14,17 @@
         <div class="container">
             <div class="slider-wrapper" tabindex="0">
                 <div class="item">
-                    <img src="img/01.webp" alt="Spiderman" />
+                    <button>&lArr;</button>
+                    <img :src="image" :alt="title" />
                     <div class="text">
-                        <h3>Spiderman</h3>
+                        <h3>
+                            {{title}}
+                        </h3>
                         <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit
-                            tempore aliquid deleniti aut
-                            veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum
-                            corporis.
+                            {{message}}
                         </p>
                     </div>
+                    <button @click="next">&rAarr;</button>
                 </div>
             </div>
         </div>

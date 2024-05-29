@@ -1,6 +1,6 @@
 const slides = [
-{
-    image: 'img/01.webp',
+    {
+        image: 'img/01.webp',
         title: 'Marvel\'s Spiderman Miles Morale',
         text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
     }, {
@@ -22,4 +22,28 @@ const slides = [
     }
 ];
 
-console.log(slides);
+
+
+const { createApp } = Vue
+let activePhoto = slides[0]
+
+
+createApp({
+    data() {
+        return {
+            'message': activePhoto.text,
+            'title': activePhoto.title,
+            'image': activePhoto.image
+        }
+        methods: {
+            next: function next(slides, activePhoto) {
+                let indice = slides.indexOf(activePhoto)
+                if (indice < slides.length) {
+
+                }
+            }
+        }
+    }
+}).mount('#app')
+
+console.log(slides, activePhoto, indice);
