@@ -35,15 +35,26 @@ createApp({
             'title': activePhoto.title,
             'image': activePhoto.image
         }
-        methods: {
-            next: function next(slides, activePhoto) {
-                let indice = slides.indexOf(activePhoto)
-                if (indice < slides.length) {
+    },
+    methods: {
+        next: function () {
+            let indice = slides.indexOf(activePhoto)
+            if (indice < slides.length - 1) {
+                activePhoto = slides[indice + 1]
+            } else {
+                activePhoto = slides[0]
+            }
+        },
 
-                }
+        before: function () {
+            let indice = slides.indexOf(activePhoto)
+            if (indice > 0) {
+                activePhoto = slides[indice - 1]
+            } else {
+                activePhoto = slides[4]
             }
         }
     }
 }).mount('#app')
 
-console.log(slides, activePhoto, indice);
+console.log(slides, activePhoto);
