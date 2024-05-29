@@ -25,25 +25,22 @@ const slides = [
 
 
 const { createApp } = Vue
-let activePhoto = slides[0]
-
+let activeIndex = 0
 
 createApp({
     data() {
         return {
-            'message': activePhoto.text,
-            'title': activePhoto.title,
-            'image': activePhoto.image
+            'message': slides[activeIndex].text,
+            'title': slides[activeIndex].title,
+            'image': slides[activeIndex].image
         }
     },
     methods: {
         next: function () {
-            let indice = slides.indexOf(activePhoto)
-            if (indice < slides.length - 1) {
-                activePhoto = slides[indice + 1]
-            } else {
-                activePhoto = slides[0]
-            }
+            activeIndex = (activeIndex + 1) % slides.length;
+            this.message = slides[activeIndex].text;
+            this.title = slides[activeIndex].title;
+            this.image = slides[activeIndex].image;
         },
 
         before: function () {
