@@ -44,12 +44,10 @@ createApp({
         },
 
         before: function () {
-            let indice = slides.indexOf(activePhoto)
-            if (indice > 0) {
-                activePhoto = slides[indice - 1]
-            } else {
-                activePhoto = slides[4]
-            }
+            activeIndex = (activeIndex - 1 + slides.length) % slides.length;
+            this.message = slides[activeIndex].text;
+            this.title = slides[activeIndex].title;
+            this.image = slides[activeIndex].image;
         }
     }
 }).mount('#app')
